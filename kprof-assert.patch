@@ -1,0 +1,10 @@
+--- kprof/kprof/kprofwidget.cpp.orig	Tue Oct 29 22:52:01 2002
++++ kprof/kprof/kprofwidget.cpp	Thu Jul  3 16:16:52 2003
+@@ -26,6 +26,7 @@
+  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  */
+ 
++#include <cassert>
+ #include <cstdlib>
+ #include <cstring>
+ 

@@ -8,7 +8,7 @@ Group:		X11/Development/Tools
 Source0:	http://dl.sourceforge.net/kprof/%{name}-%{version}.tar.bz
 # Source0-md5:	cf3870b7a5f51320664469f39f913788
 Source1:        http://ep09.pld-linux.org/~djurban/kde/kde-common-admin.tar.bz2
-# Source1-md5:  81e0b2f79ef76218381270960ac0f55f
+# Source1-md5:	81e0b2f79ef76218381270960ac0f55f
 Patch0:		%{name}-assert.patch
 URL:		http://kprof.sourceforge.net/
 BuildRequires:	autoconf

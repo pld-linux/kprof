@@ -1,12 +1,12 @@
 Summary:	KProf - Profiling results viewer
 Summary(pl):	KProf - przegl±darka wyników profilowania
 Name:		kprof
-Version:	1.4.2
+Version:	1.4.3
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	http://dl.sourceforge.net/kprof/%{name}-%{version}.tar.bz
-# Source0-md5:	cf3870b7a5f51320664469f39f913788
+Source0:	http://dl.sourceforge.net/kprof/%{name}-%{version}.tar.bz2
+# Source0-md5:	d2b1286f8fea7eb1d3e67215e07d296f
 Source1:        http://ep09.pld-linux.org/~djurban/kde/kde-common-admin.tar.bz2
 # Source1-md5:	81e0b2f79ef76218381270960ac0f55f
 Patch0:		%{name}-assert.patch

@@ -8,3 +8,11 @@
  #include <cstdlib>
  #include <cstring>
  
+6c6
+< kprof_SOURCES = ctidyup.cpp parseArguments.cpp kproffile.cpp Log.cpp cprofileinfo.cpp parseprofile_pose.cpp parseprofile_fnccheck.cpp parseprofile.cpp parseprofile_gprof.cpp clientsidemap.cpp vcgCallGraph.cpp dotCallGraph.cpp kprofwidget.cpp cprofileviewitem.cpp call-graph.ui kprof.cpp main.cpp cconfigure.cpp cconfigure.h
+---
+> kprof_SOURCES = ctidyup.cpp parseArguments.cpp kproffile.cpp Log.cpp cprofileinfo.cpp parseprofile_pose.cpp parseprofile_fnccheck.cpp parseprofile.cpp parseprofile_gprof.cpp clientsidemap.cpp vcgCallGraph.cpp dotCallGraph.cpp kprofwidget.cpp cprofileviewitem.cpp call-graph.ui kprof.cpp main.cpp cconfigure.cpp
+10c10
+< EXTRA_DIST = main.cpp kprof.cpp kprof.h kprofdoc.h kprofview.h kprofui.rc kprof.desktop lo32-app-kprof.png lo16-app-kprof.png cprofileviewitem.h call-graph.h call-graph.ui cprofileinfo.h cprofileviewitem.cpp kprofwidget.cpp kprofwidget.h dotCallGraph.cpp dotCallGraph.h vcgCallGraph.cpp vcgCallGraph.h clientsidemap.h clientsidemap.cpp parseprofile_gprof.h parseprofile_gprof.cpp parseprofile.h parseprofile.cpp parseprofile_fnccheck.h parseprofile_fnccheck.cpp parseprofile_pose.h parseprofile_pose.cpp cprofileinfo.cpp Log.cpp Log.h kproffile.cpp kproffile.h parseArguments.cpp parseArguments.h ctidyup.cpp ctidyup.h 
+---
+> EXTRA_DIST = main.cpp kprof.cpp kprof.h kprofdoc.h kprofview.h kprofui.rc kprof.desktop lo32-app-kprof.png lo16-app-kprof.png cprofileviewitem.h call-graph.h call-graph.ui cprofileinfo.h cprofileviewitem.cpp kprofwidget.cpp kprofwidget.h dotCallGraph.cpp dotCallGraph.h vcgCallGraph.cpp vcgCallGraph.h clientsidemap.h clientsidemap.cpp parseprofile_gprof.h parseprofile_gprof.cpp parseprofile.h parseprofile.cpp parseprofile_fnccheck.h parseprofile_fnccheck.cpp parseprofile_pose.h parseprofile_pose.cpp cprofileinfo.cpp Log.cpp Log.h kproffile.cpp kproffile.h parseArguments.cpp parseArguments.h ctidyup.cpp ctidyup.h cconfigure.h

@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://download.sourceforge.net/kprof/%{name}-%{version}.tar.gz
+# Source0-md5:	bf3a369a87d3db1afdd926d27117dead
 URL:		http://kprof.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake

@@ -7,14 +7,15 @@ License:	GPL
 Group:		X11/Development/Tools
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz
 # Source0-md5:	cf3870b7a5f51320664469f39f913788
+Source1:        http://ep09.pld-linux.org/~djurban/kde/kde-common-admin.tar.bz2
+# Source1-md5:  81e0b2f79ef76218381270960ac0f55f
 Patch0:		%{name}-assert.patch
 URL:		http://kprof.sourceforge.net/
-BuildRequires:	fam-devel
-BuildRequires:	kdelibs-devel
-BuildRequires:	libart_lgpl-devel
+BuildRequires:  autoconf
+BuildRequires:  automake
+BuildRequires:  kdelibs-devel >= 9:3.2.0
+BuildRequires:  unsermake >= 040805
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	%{_docdir}/kde/HTML
 
 %description
 A visual tool for developers that displays the execution profiling
@@ -25,23 +26,30 @@ Wizualne narzêdzie dla programistów wy¶wietlaj±ce wyniki profilowania
 wygenerowane przez gprof(1).
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{name} -a1
 %patch -p1
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
-%configure
+cp -f /usr/share/automake/config.sub admin
+export UNSERMAKE=/usr/share/unsermake/unsermake
+%{__make} -f admin/Makefile.common cvs
+
+%configure \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir} \
+	kde_libs_htmldir=%{_kdedocdir}
 
 %find_lang %{name} --with-kde
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+mv $RPM_BUILD_ROOT{%{_datadir}/applnk/Development,%{_desktopdir}}/kprof.desktop
+echo "Categories=Qt;KDE;Development;Profiling;" >> $RPM_BUILD_ROOT%{_desktopdir}/kprof.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -49,6 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kprof
-%{_applnkdir}/Development/kprof.desktop
+%{_desktopdir}/kprof.desktop
 %{_datadir}/apps/kprof
-%{_pixmapsdir}/*/*/apps/kprof.png
+%{_iconsdir}/*/*/apps/kprof.png

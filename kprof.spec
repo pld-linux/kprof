@@ -28,7 +28,7 @@ wygenerowane przez gprof(1).
 %build
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure
 %{__make}
 

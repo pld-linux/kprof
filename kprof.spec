@@ -26,7 +26,8 @@ wygenerowane przez gprof(1).
 %setup -q -n kprof-1.1
 
 %build
-aclocal
+rm -f missing
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure

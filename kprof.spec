@@ -1,17 +1,20 @@
 Summary:	KProf - Profiling results viewer
 Summary(pl):	KProf - przegl±darka wyników profilowania
 Name:		kprof
-Version:	1.1
+Version:	1.4.2
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	bf3a369a87d3db1afdd926d27117dead
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz
+# Source0-md5:	cf3870b7a5f51320664469f39f913788
+Patch0:		%{name}-assert.patch
 URL:		http://kprof.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	fam-devel
+BuildRequires:	kdelibs-devel
+BuildRequires:	libart_lgpl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_htmldir	%{_docdir}/kde/HTML
 
 %description
 A visual tool for developers that displays the execution profiling
@@ -22,13 +25,13 @@ Wizualne narzêdzie dla programistów wy¶wietlaj±ce wyniki profilowania
 wygenerowane przez gprof(1).
 
 %prep
-%setup -q -n kprof-1.1
+%setup -q -n %{name}
+%patch -p1
 
 %build
-rm -f missing
-%{__aclocal}
-%{__autoconf}
-%{__automake}
+kde_appsdir="%{_applnkdir}"; export kde_appsdir
+kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %configure
 %{__make}
 
@@ -36,16 +39,16 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kdelnkdir=%{_applnkdir}/Development
+	DESTDIR=$RPM_BUILD_ROOT
+
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kprof
 %{_applnkdir}/Development/kprof.desktop
 %{_datadir}/apps/kprof
-%{_datadir}/icons/medium/locolor/apps/kprof.png
-%{_datadir}/icons/small/locolor/apps/kprof.png
+%{_pixmapsdir}/*/*/apps/kprof.png

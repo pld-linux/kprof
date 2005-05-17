@@ -10,6 +10,7 @@ Source0:	http://dl.sourceforge.net/kprof/%{name}-%{version}.tar.bz2
 Source1:        http://ep09.pld-linux.org/~djurban/kde/kde-common-admin.tar.bz2
 # Source1-md5:	81e0b2f79ef76218381270960ac0f55f
 Patch0:		%{name}-assert.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://kprof.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -28,7 +29,8 @@ wygenerowane przez gprof(1).
 
 %prep
 %setup -q -n %{name} -a1
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
@@ -50,7 +52,6 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang %{name} --with-kde
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 mv $RPM_BUILD_ROOT{%{_datadir}/applnk/Development,%{_desktopdir}}/kprof.desktop
-echo "Categories=Qt;KDE;Development;Profiling;" >> $RPM_BUILD_ROOT%{_desktopdir}/kprof.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT

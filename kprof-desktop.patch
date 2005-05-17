@@ -1,0 +1,17 @@
+--- kprof/kprof/kprof.desktop~	2005-05-17 23:48:39.000000000 +0200
++++ kprof/kprof/kprof.desktop	2005-05-17 23:48:39.000000000 +0200
+@@ -1,9 +1,12 @@
+ [Desktop Entry]
++Encoding=UTF-8
+ Type=Application
+ Name=KProf
+ Exec=kprof
+ Icon=kprof
+ Comment=Profile results analysis utility
+-Comment[fr]=Outil d'analyse de r�sultats de profiling
+-Terminal=0
++Comment[fr]=Outil d'analyse de résultats de profiling
++Comment[pl]=Narzędzie do analizy wyników profilowania
++Terminal=false
+ DocPath=kprof/index.html
++Categories=Qt;KDE;Development;Profiling;

@@ -1,5 +1,5 @@
 Summary:	KProf - Profiling results viewer
-Summary(pl.UTF-8):   KProf - przeglądarka wyników profilowania
+Summary(pl.UTF-8):	KProf - przeglądarka wyników profilowania
 Name:		kprof
 Version:	1.4.3
 Release:	1

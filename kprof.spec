@@ -11,6 +11,7 @@ Source1:        http://ep09.pld-linux.org/~djurban/kde/kde-common-admin.tar.bz2
 # Source1-md5:	81e0b2f79ef76218381270960ac0f55f
 Patch0:		%{name}-assert.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		kde-ac260.patch
 URL:		http://kprof.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -31,6 +32,7 @@ wygenerowane przez gprof(1).
 %setup -q -n %{name} -a1
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
